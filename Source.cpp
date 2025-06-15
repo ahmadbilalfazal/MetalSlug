@@ -1,8 +1,7 @@
 #include "Game.h"
 
 int main() {
-    SetWorkingDirectory(GetApplicationDirectory());
-
+	GetWorkingDirectory();
     Game game;
     game.Initialize();
 

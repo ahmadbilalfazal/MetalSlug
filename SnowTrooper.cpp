@@ -11,6 +11,16 @@ SnowTrooper::SnowTrooper(float x, float y)
     animation = new Animation(walkFrames, 2, 0.3f, true);
 }
 
+void SnowTrooper::Update(float deltaTime) {
+    Enemy::Update(deltaTime);
+
+    grenadeCooldown -= deltaTime;
+    if (grenadeCooldown <= 0) {
+        Attack();
+        grenadeCooldown = 3.0f;
+    }
+}
+
 void SnowTrooper::Patrol() {
     if (rand() % 100 < 90) {
         velocity.x = -moveSpeed;
